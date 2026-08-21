@@ -21,7 +21,11 @@
   "tasks": {
     "check": "deno check mod.ts",
     "test": "deno test --allow-env --allow-read --allow-net=jsr.io --doc tests/ src/http.ts",
-    "doc": "deno doc --lint mod.ts"
+    "doc": "deno doc --lint mod.ts",
+    "publish:dry": "deno publish --dry-run"
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@1.0.15"
   },
   "compilerOptions": {
     "strict": true,

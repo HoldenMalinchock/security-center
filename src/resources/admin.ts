@@ -6,13 +6,13 @@ import type {
   ListUsersQuery,
   RiskRule,
   ScId,
+  SecurityCenterTransport,
   Status,
   SwitchUserBody,
   System,
   UpdateCurrentUserBody,
   User,
   UserPreference,
-  SecurityCenterTransport,
 } from "../types.ts";
 
 /**

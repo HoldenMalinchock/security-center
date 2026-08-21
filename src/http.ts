@@ -99,9 +99,10 @@ export function buildUrl(
   query: Record<string, string | number | boolean | undefined> = {},
 ): string {
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
-  const restPath = normalizedPath.startsWith("/rest/") || normalizedPath === "/rest"
-    ? normalizedPath
-    : `/rest${normalizedPath}`;
+  const restPath =
+    normalizedPath.startsWith("/rest/") || normalizedPath === "/rest"
+      ? normalizedPath
+      : `/rest${normalizedPath}`;
   const target = new URL(`${baseUrl}${restPath}`);
   for (const [key, value] of Object.entries(query)) {
     if (value === undefined) continue;
@@ -151,7 +152,9 @@ export function toQueryRecord(
  *
  * Required Deno permissions: none.
  */
-export function parseSetCookie(header: string): { name: string; value: string } | undefined {
+export function parseSetCookie(
+  header: string,
+): { name: string; value: string } | undefined {
   const firstPart = header.split(";")[0];
   const separatorIndex = firstPart.indexOf("=");
   if (separatorIndex <= 0) return undefined;
@@ -313,7 +316,9 @@ export class SecurityCenterHttp {
       }
     }
 
-    if (parsed !== null && typeof parsed === "object" && !Array.isArray(parsed)) {
+    if (
+      parsed !== null && typeof parsed === "object" && !Array.isArray(parsed)
+    ) {
       const envelope = parsed as SecurityCenterEnvelope;
       const errorCode = Number(envelope.error_code ?? 0);
       if (!response.ok || errorCode !== 0) {

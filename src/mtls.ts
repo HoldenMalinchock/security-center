@@ -1,7 +1,6 @@
 import { SecurityCenterValidationError } from "./errors.ts";
 
-const PEM_BLOCK =
-  /-----BEGIN ([A-Z0-9 ]+)-----[\s\S]*?-----END \1-----/g;
+const PEM_BLOCK = /-----BEGIN ([A-Z0-9 ]+)-----[\s\S]*?-----END \1-----/g;
 
 /** True when the string already contains PEM armor instead of a file path. */
 export function looksLikePem(value: string): boolean {

@@ -71,7 +71,14 @@ export type TokenResponse = {
 };
 
 /** Saved-query type accepted by `/query` and `/analysis`. */
-export type QueryType = "alert" | "all" | "lce" | "mobile" | "ticket" | "user" | "vuln";
+export type QueryType =
+  | "alert"
+  | "all"
+  | "lce"
+  | "mobile"
+  | "ticket"
+  | "user"
+  | "vuln";
 
 /** Vulnerability analysis tool name (`vulndetails`, `sumip`, ...). */
 export type VulnTool =
@@ -355,7 +362,12 @@ export type AnalysisResultRow = {
   pluginID?: string | number;
   pluginName?: string;
   name?: string;
-  severity?: { id?: ScId; name?: string; description?: string; [key: string]: unknown };
+  severity?: {
+    id?: ScId;
+    name?: string;
+    description?: string;
+    [key: string]: unknown;
+  };
   ip?: string;
   dnsName?: string | null;
   macAddress?: string | null;
@@ -408,7 +420,13 @@ export type ScanSchedule = {
 /** Report to generate when a scan finishes. */
 export type ScanReportRef = {
   id: ScId;
-  reportSource: "cumulative" | "patched" | "individual" | "lce" | "archive" | "mobile";
+  reportSource:
+    | "cumulative"
+    | "patched"
+    | "individual"
+    | "lce"
+    | "archive"
+    | "mobile";
 };
 
 /** Query-string options for `GET /scan`. */
@@ -591,7 +609,16 @@ export type ListAssetsQuery = ListQuery & {
 /** Single dynamic-asset rule clause. */
 export type AssetRuleClause = {
   type: "clause";
-  operator: "contains" | "eq" | "lt" | "lte" | "ne" | "gt" | "gte" | "regex" | "pcre";
+  operator:
+    | "contains"
+    | "eq"
+    | "lt"
+    | "lte"
+    | "ne"
+    | "gt"
+    | "gte"
+    | "regex"
+    | "pcre";
   filterName: string;
   pluginIDConstraint?: string;
   value: string | number | { id: ScId; [key: string]: unknown };
@@ -631,7 +658,9 @@ export type CreateAssetBody = {
     searchBase: string;
     ldap: IdRef;
   };
-  filters?: Array<{ filterName: string; value: string | number; operator?: string }>;
+  filters?: Array<
+    { filterName: string; value: string | number; operator?: string }
+  >;
   tool?: string;
   sourceType?: string;
   startOffset?: number;
