@@ -1,0 +1,30 @@
+{
+  "name": "@hmalinchock/security-center",
+  "version": "0.1.0",
+  "license": "MIT",
+  "exports": {
+    ".": "./mod.ts"
+  },
+  "publish": {
+    "include": [
+      "mod.ts",
+      "src/**",
+      "README.md",
+      "LICENSE",
+      "deno.json",
+      "jsr.json"
+    ],
+    "exclude": [
+      "tests/**"
+    ]
+  },
+  "tasks": {
+    "check": "deno check mod.ts",
+    "test": "deno test --allow-env --allow-read --allow-net=jsr.io --doc tests/ src/http.ts",
+    "doc": "deno doc --lint mod.ts"
+  },
+  "compilerOptions": {
+    "strict": true,
+    "lib": ["deno.window"]
+  }
+}
