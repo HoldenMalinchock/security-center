@@ -20,7 +20,7 @@ Or pin a version:
 ```json
 {
   "imports": {
-    "@hmalinchock/security-center": "jsr:@hmalinchock/security-center@^0.1.0"
+    "@hmalinchock/security-center": "jsr:@hmalinchock/security-center@^1.0.0"
   }
 }
 ```
@@ -218,8 +218,8 @@ GitHub Actions publishes to [JSR](https://jsr.io/@hmalinchock/security-center)
 when you push a `v*` tag that matches `jsr.json` and `deno.json`:
 
 ```bash
-git tag v0.1.0
-git push origin v0.1.0
+git tag v1.0.0
+git push origin v1.0.0
 ```
 
 ## License
