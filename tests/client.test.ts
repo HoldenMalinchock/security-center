@@ -1,4 +1,4 @@
-import { assertEquals, assertRejects } from "jsr:@std/assert@1.0.15";
+import { assertEquals, assertRejects } from "@std/assert";
 import {
   buildUrl,
   normalizeBaseUrl,
@@ -158,18 +158,23 @@ Deno.test("login stores token and cookie for later calls", async () => {
       const url = String(input);
       const headers = new Headers(init?.headers);
       if (url.endsWith("/rest/token") && init?.method === "POST") {
-        return Promise.resolve(new Response(JSON.stringify({
-          type: "regular",
-          response: { token: 123456789 },
-          error_code: 0,
-          error_msg: "",
-        }), {
-          status: 200,
-          headers: {
-            "content-type": "application/json",
-            "set-cookie": "TNS_SESSIONID=session-1; Path=/",
-          },
-        }));
+        return Promise.resolve(
+          new Response(
+            JSON.stringify({
+              type: "regular",
+              response: { token: 123456789 },
+              error_code: 0,
+              error_msg: "",
+            }),
+            {
+              status: 200,
+              headers: {
+                "content-type": "application/json",
+                "set-cookie": "TNS_SESSIONID=session-1; Path=/",
+              },
+            },
+          ),
+        );
       }
       headersSeen.push(
         `${headers.get("X-SecurityCenter")}|${headers.get("Cookie")}`,

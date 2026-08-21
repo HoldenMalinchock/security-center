@@ -222,7 +222,10 @@ export class ScanResultResource {
    *
    * @tags allow-net
    */
-  async reimport(id: ScId, body: ReimportScanResultBody = {}): Promise<unknown> {
+  async reimport(
+    id: ScId,
+    body: ReimportScanResultBody = {},
+  ): Promise<unknown> {
     return await this.#http.request({
       method: "POST",
       path: `/scanResult/${id}/import`,
